@@ -10,6 +10,7 @@ eureka:
   instance:
     hostname: localhost
     prefer-ip-address: true
+    appname: QUORA_MODERATOR
 
 spring:
   application:

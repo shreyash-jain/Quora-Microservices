@@ -3,6 +3,7 @@ package com.eureka.client.client.service;
 import com.eureka.client.client.dto.QuoraPostDto;
 import com.eureka.client.client.model.QuoraPost;
 import com.eureka.client.client.repository.Repository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class PostServiceImpl implements PostService {
 
     @Autowired
@@ -18,6 +20,9 @@ public class PostServiceImpl implements PostService {
 
     @Autowired
     private KafkaProducer kafkaProducer;
+
+    @Autowired
+    private ApiService apiService;
 
 
     @Override
@@ -57,6 +62,8 @@ public class PostServiceImpl implements PostService {
 
             repository.save(u);
             kafkaProducer.send(u);
+            //Boolean b = apiService.sendDataToModeratorViaApi(u);
+            //log.info(b.toString());
             return "Post Added!!";
         } catch (Exception e) {
             return e.getMessage();

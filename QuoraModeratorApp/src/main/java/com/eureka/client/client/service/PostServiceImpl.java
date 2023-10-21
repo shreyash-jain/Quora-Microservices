@@ -24,7 +24,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void moderatePost(QuoraPost post) {
-        Moderator moderator = new Moderator(Arrays.asList(new SimpleFilter(Arrays.asList("Shit", "Poo"))));
+        Moderator moderator = new Moderator(Arrays.asList(new SimpleFilter(Arrays.asList("Shit", "Poo", "bitch", "bloody"))));
         post.setBody(moderator.moderate(post.getBody()));
         repository.save(post);
         log.info(post.toString());
