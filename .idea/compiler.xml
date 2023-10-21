@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="eureka_server" />
+        <module name="Api_Gateway" />
+        <module name="ModeratorApp" />
+        <module name="userApp" />
+        <module name="AdminApp" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eureka-server" target="17" />
+      <module name="GloQuora" target="17" />
+      <module name="QuoraApp (1)" target="20" />
+      <module name="QuoraApp (2)" target="20" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AdminApp" options="-parameters" />
+      <module name="Api_Gateway" options="-parameters" />
+      <module name="GloQuora" options="-parameters" />
+      <module name="ModeratorApp" options="-parameters" />
+      <module name="QuoraApp" options="-parameters" />
+      <module name="QuoraApp (1)" options="-parameters" />
+      <module name="QuoraApp (2)" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="eureka_server" options="-parameters" />
+      <module name="userApp" options="-parameters" />
+    </option>
+  </component>
+</project>

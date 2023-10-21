@@ -1,0 +1,33 @@
+server:
+  port: 9001
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    eureka:
+      instance:
+        hostname: localhost
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+  application:
+    name: USER-SERVICE
+  datasource:
+    password: bar
+    username: foo
+    url: jdbc:mysql://localhost:3306/AggregatorAppSite?createDatabaseIfNotExist=true&useSSL=true
+
+logging:
+  level:
+    com:
+      netflix:
+        eureka: DEBUG

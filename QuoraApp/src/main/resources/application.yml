@@ -1,0 +1,38 @@
+server:
+  port: 8085
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: QUORA_APP
+  datasource:
+    driver-class: mongodb.jdbc.MongoDriver
+  data:
+    mongodb:
+      database: GloQuoraDatabase
+      port: '27017'
+      host: localhost
+  kafka:
+    producer:
+      bootstrap-servers: 127.0.0.1:29094
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      group-id: group-id
+
+auto:
+  create:
+    topics:
+      enable: true
+
+topic:
+  name:
+    producer: yoyo

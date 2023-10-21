@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    instance:
+      eureka:
+        instance:
+          hostname: localhost
+
+spring:
+  application:
+    name: API_GATEWAY
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: 'true'
+        compatibility-verifier:
+          enabled: 'false'
+      routes:
+        - id: QUORA_APP
+          uri:
+            lb://QUORA_APP
+          predicates:
+            - Path=/userspost/**
+
+
+        - id: USER-SERVICE
+          uri:
+            lb://USER-SERVICE
+          predicates:
+            - Path=/User/**
